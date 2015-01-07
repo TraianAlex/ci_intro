@@ -34,7 +34,7 @@ class Site extends CI_Controller {
 
         public function about() {
             $data['title'] = "About";
-            $this->load->view('view_about');
+            $this->load->view('view_about', $data);
         }
 }
 
