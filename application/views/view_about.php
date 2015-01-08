@@ -9,7 +9,7 @@
 <div id="container">
 	<h1>Welcome to About!</h1>
 
-        <a href="home">Home</a> | <a href="about">About</a>
+        <a href="<?=base_url();?>site/home">Home</a> | <a href="<?=base_url();?>site/about">About</a>
 </div>
 
 </body>
