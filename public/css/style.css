@@ -1,0 +1,26 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : 8-Jan-2015, 11:03:49 AM
+    Author     : victor92
+*/
+
+/* Overide bootstrap*/
+.wrapper{
+    width: 980px;
+    margin: 0 auto;
+}
+#dashboard-side{
+    background-color: #f2f2f2;
+    min-height: 500px;
+}
+#dashboard-main{
+    background-color: #f2f2f2;
+    min-height: 500px;
+}
+.hide{
+    display: none;
+}
