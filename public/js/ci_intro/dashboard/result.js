@@ -1,31 +1,54 @@
 var Result = function() {
-  
-    // ------------------------------------------------------------------------
-  
+
+    /* ------------------------------------------------------------------------*/
+
     this.__construct = function() {
         console.log('Result Created');
     };
-    
-    // ------------------------------------------------------------------------
-    
+
+    /* ------------------------------------------------------------------------*/
+
     this.success = function(msg) {
+        var dom = $("#success");
         if(typeof msg === 'undefined'){
-            $("#success").html("Success");
+            dom.html("Success").fadeIn();
         }
-        $("#success").html(msg).fadeIn();
+        dom.html(msg).fadeIn();
+        
+        setTimeout(function (){
+                dom.fadeOut();
+        }, 5000);
     };
-    
-    // ------------------------------------------------------------------------
-    
+
+    /* ------------------------------------------------------------------------*/
+
     this.error = function(msg) {
+        var dom = $("#error");
+
         if(typeof msg === 'undefined'){
-            $("#error").html("Error");
+            dom.html("Error").fadeIn();
         }
-        $("#error").html(msg).fadeIn();
+
+        if(typeof msg === 'object'){
+            var output = '<ul>';
+            for(var key in msg){
+                output += '<li>' + msg[key] + '</li>';
+            }
+            output += '</ul>';
+            
+            dom.html(output).fadeIn();
+        }
+        else{
+            dom.html(msg).fadeIn();
+        }
+
+        setTimeout(function (){
+                dom.fadeOut();
+        }, 5000);
     };
-    
-    // ------------------------------------------------------------------------
-    
+
+    /* ------------------------------------------------------------------------*/
+
     this.__construct();
-    
+
 };

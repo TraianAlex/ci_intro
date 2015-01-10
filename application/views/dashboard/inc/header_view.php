@@ -5,7 +5,7 @@
         <link href="<?=base_url()?>public/css/bootstrap.min.css" rel="stylesheet" />
         <link href="<?=base_url()?>public/css/style.css" rel="stylesheet" />
         
-        <script src="<?=base_url()?>public/js/jquery.js"></script>
+        <script src="<?=base_url()?>public/js/jQuery.js"></script>
         <script src="<?=base_url()?>public/js/bootstrap.js"></script>
         <script src="<?=base_url()?>public/js/ci_intro/dashboard/result.js"></script>
         <script src="<?=base_url()?>public/js/ci_intro/dashboard/event.js"></script>
