@@ -23,10 +23,10 @@ var Event = function() {
             var postData = $(this).serialize();
 
             $.post(url, postData, function(o){
-                if(o.result === 1){
-                    Result.success('test');
+                if(o.result == 1){
+                    Result.success();
                 }else{
-                    Result.error('error');
+                    Result.error();
                 }
             }, 'json');
         });

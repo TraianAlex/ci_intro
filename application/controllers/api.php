@@ -81,11 +81,12 @@ class Api extends CI_Controller{
             $this->_require_login();
             
             $this->form_validation->set_rules('content', 'Content', 'required|max_length[255]');
-            if($this->form_validation->run() == false){
+            if($this->form_validation->run() === false){
                 $this->output->set_output(json_encode([
                     'result' => 0,
                      'error' => $this->form_validation->error_array()
-                    ]));    
+                    ]));
+                //$this->output->enable_profiler();  
                 return false;
             }
             
@@ -95,6 +96,7 @@ class Api extends CI_Controller{
                     ]);
             if($result){
                 $this->output->set_output(json_encode(['result' => 1]));
+                //$this->output->enable_profiler(); 
                 return false;
             }
             $this->output->set_output(json_encode([
