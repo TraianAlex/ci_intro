@@ -2,100 +2,97 @@
 
 class Site extends CI_Controller {
 
-	public function index()
-	{
-            echo "hi internet";
-            $this->hello();
-            $this->addStuff();
-            $this->home();
-	}
+	public function index(){
 
-        public function hello() {
-            echo ' something else';
-        }
+        echo "hi internet";
+        $this->hello();
+        $this->addStuff();
+        $this->home();
+    }
 
-        public function addStuff() {
-            $this->load->model('math');
-            echo $this->math->add(2, 2);
-        }
+    public function hello() {
+        echo ' something else';
+    }
 
-        public function home() {
-            $data['title'] = "Home";
-            $data['val1'] = "2";
-            $data['val2'] = "2";
+    public function addStuff() {
+        $this->load->model('math');
+        echo $this->math->add(2, 2);
+    }
 
-            $this->load->model('math');
+    public function home() {
 
-            $data['addTotal'] = $this->math->add($data['val1'], $data['val2']);
-            $data['subTotal'] = $this->math->sub($data['val1'], $data['val2']);
-            $this->load->view("view_home", $data);
-        }
+        $data['title'] = "Home";
+        $data['val1'] = "2";
+        $data['val2'] = "2";
+        $this->load->model('math');
 
-        public function about() {
-            $data['title'] = "About";
-            $this->load->view('view_about', $data);
-        }
+        $data['addTotal'] = $this->math->add($data['val1'], $data['val2']);
+        $data['subTotal'] = $this->math->sub($data['val1'], $data['val2']);
+        $this->load->view("view_home", $data);
+    }
 
-        public function getValues() {
-            $this->load->model('get_db');
+    public function about() {
 
-            $data['results'] = $this->get_db->getAll();
+        $data['title'] = "About";
+        $this->load->view('view_about', $data);
+    }
 
-            $this->load->view('view_db', $data);
-        }
+    public function getValues() {
 
-        public function insertValues() {
-            $this->load->model('get_db');
+        $this->load->model('get_db');
+        $data['results'] = $this->get_db->getAll();
+        $this->load->view('view_db', $data);
+    }
 
-            $newRow = array("name" => "bob");
-            $this->get_db->insert1($newRow);
-            echo "it has been added";
-        }
+    public function insertValues() {
 
-        public function insertValues2() {
-            $this->load->model('get_db');
+        $this->load->model('get_db');
+        $newRow = array("name" => "bob");
+        $this->get_db->insert1($newRow);
+        echo "it has been added";
+    }
 
-            $newRow = array(array("name" => "sue"),
-                          array("name" => "dylan"));
-            $this->get_db->insert2($newRow);
-            echo "it has been added 2";
-        }
+    public function insertValues2() {
 
-        public function updateValues() {
-            $this->load->model('get_db');
+        $this->load->model('get_db');
+        $newRow = array(array("name" => "sue"),
+                      array("name" => "dylan"));
+        $this->get_db->insert2($newRow);
+        echo "it has been added 2";
+    }
 
-            $newRow = array("name" => "angie");
-            $this->get_db->update1($newRow);
-            echo "it has been updated";
-        }
+    public function updateValues() {
 
-        public function updateValues2() {
-            $this->load->model('get_db');
+        $this->load->model('get_db');
+        $newRow = array("name" => "angie");
+        $this->get_db->update1($newRow);
+        echo "it has been updated";
+    }
 
-            $newRow = array(array("id" => "3",
-                              "name" => "marcus"),
-                     array("id" => "4",
-                         "name" => "bill"));
-            $this->get_db->update2($newRow);
-            echo "it has been updated 2";
-        }
+    public function updateValues2() {
 
-        public function deleteValues() {
-            $this->load->model('get_db');
+        $this->load->model('get_db');
+        $newRow = array(array("id" => "3",
+                          "name" => "marcus"),
+                 array("id" => "4",
+                     "name" => "bill"));
+        $this->get_db->update2($newRow);
+        echo "it has been updated 2";
+    }
 
-            $oldRow = array("id" => "1");
-            $this->get_db->delete1($oldRow);
-            echo 'deleted';
-        }
+    public function deleteValues() {
 
-        public function emptyTable() {
-            $this->load->model('get_db');
+        $this->load->model('get_db');
+        $oldRow = array("id" => "1");
+        $this->get_db->delete1($oldRow);
+        echo 'deleted';
+    }
 
-            $oldRow = "test";
-            $this->get_db->empty1($oldRow);
-            echo 'emptied!';
-        }
+    public function emptyTable() {
+
+        $this->load->model('get_db');
+        $oldRow = "test";
+        $this->get_db->empty1($oldRow);
+        echo 'emptied!';
+    }
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/site.php */

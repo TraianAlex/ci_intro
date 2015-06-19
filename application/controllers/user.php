@@ -100,12 +100,14 @@ class Test extends CI_Controller{
     }
 
 }
-/*When you register a user it's important to remember we want one unique login per user. Otherwise, if we had two different users with the same login then it would log the user in that was first found in the database with either password.
-
-This is where the form validation will come in handy. We can do a simple lookup to check if it's a unique user registering:
-
+/*When you register a user it's important to remember we want one unique login per user.
+Otherwise, if we had two different users with the same login then it would log the user in that was first
+found in the database with either password.
+This is where the form validation will come in handy. We can do a simple lookup to check if it's a unique user
+registering:
 $this->form_validation->set_rules('email', false, 'required|is_unique[user.email]');
-
-The pipe "|" separates different rules to apply to a POST value. When you see is_unique[] the data inside the brackets is the table name and the table row. So this may actually read like: is_unique[table.row].
-
-Remember that it's always important to validate on the server, more important than front-end. There will always be ways around the front-end, such as disabling JavaScript validation, so always keep the server as your first priority.*/
+The pipe "|" separates different rules to apply to a POST value. When you see is_unique[] the data inside
+the brackets is the table name and the table row. So this may actually read like: is_unique[table.row].
+Remember that it's always important to validate on the server, more important than front-end. There will always
+be ways around the front-end, such as disabling JavaScript validation, so always keep the server as your
+first priority.*/
