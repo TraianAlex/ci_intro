@@ -3,15 +3,23 @@
 class Site extends CI_Controller {
 
 	public function index(){
-
-        echo "hi internet";
-        $this->hello();
-        $this->addStuff();
         $this->home();
+        $this->addStuff();
+    }
+    //not done
+    public function contact(){
+        $data['main'] = 'contact';
+        $this->load->view("template", $data);
     }
 
-    public function hello() {
-        echo ' something else';
+    public function submit(){
+        $name = $this->input->post('name');
+        if($this->input->post('ajax')){
+            echo 'Your email was sent';
+        }else{
+            $this->session->set_flashdata('message', 'Your email was sent');//echo 'Your email was sent';
+            redirect('site/contact');
+        }
     }
 
     public function addStuff() {
@@ -21,71 +29,76 @@ class Site extends CI_Controller {
 
     public function home() {
 
-        $data['title'] = "Home";
+        $data['main'] = 'view_home';
         $data['val1'] = "2";
         $data['val2'] = "2";
         $this->load->model('math');
 
         $data['addTotal'] = $this->math->add($data['val1'], $data['val2']);
         $data['subTotal'] = $this->math->sub($data['val1'], $data['val2']);
-        $this->load->view("view_home", $data);
+        $this->load->view("template", $data);
     }
 
     public function about() {
 
-        $data['title'] = "About";
-        $this->load->view('view_about', $data);
+        $data['main'] = 'view_about';
+        $this->load->view('template', $data);
     }
 
     public function getValues() {
 
+        $data['main'] = 'view_db';
         $this->load->model('get_db');
         $data['results'] = $this->get_db->getAll();
-        $this->load->view('view_db', $data);
+        
+        $this->load->view('template', $data);
     }
 
     public function insertValues() {
 
         $this->load->model('get_db');
-        $newRow = array("name" => "bob");
+        $newRow = ["name" => "bob"];
         $this->get_db->insert1($newRow);
-        echo "it has been added";
+        $this->session->set_flashdata('message', 'it has been added');
+        redirect('site/getValues');
     }
 
     public function insertValues2() {
 
         $this->load->model('get_db');
-        $newRow = array(array("name" => "sue"),
-                      array("name" => "dylan"));
+        $newRow = [["name" => "sue"],
+                   ["name" => "dylan"]];
         $this->get_db->insert2($newRow);
-        echo "it has been added 2";
+        $this->session->set_flashdata('message', 'it has been added2');
+        redirect('site/getValues');
     }
 
     public function updateValues() {
 
         $this->load->model('get_db');
-        $newRow = array("name" => "angie");
+        $newRow = ["name" => "angie"];
         $this->get_db->update1($newRow);
-        echo "it has been updated";
+        $this->session->set_flashdata('message', 'it has been updated');
+        redirect('site/getValues');
     }
 
     public function updateValues2() {
 
         $this->load->model('get_db');
-        $newRow = array(array("id" => "3",
-                          "name" => "marcus"),
-                 array("id" => "4",
-                     "name" => "bill"));
+        $newRow = [["id" => "3", "name" => "marcus"],
+                   ["id" => "4", "name" => "bill"]];
         $this->get_db->update2($newRow);
-        echo "it has been updated 2";
+        $this->session->set_flashdata('message', 'it has been updated2');
+        redirect('site/getValues');
     }
 
     public function deleteValues() {
 
         $this->load->model('get_db');
-        $oldRow = array("id" => "1");
+        $oldRow = ["id" => "1"];
         $this->get_db->delete1($oldRow);
-        echo 'deleted';
+        $this->session->set_flashdata('message', 'Deleted');
+        redirect('site/getValues');
     }
 
     public function emptyTable() {
@@ -93,6 +106,7 @@ class Site extends CI_Controller {
         $this->load->model('get_db');
         $oldRow = "test";
         $this->get_db->empty1($oldRow);
-        echo 'emptied!';
+        $this->session->set_flashdata('message', 'Emptied!');
+        redirect('site/getValues');
     }
 }

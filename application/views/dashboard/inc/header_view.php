@@ -21,6 +21,7 @@
                     <li><a href="#">Dashboard</a></li>
                     <li><a href="#">User</a></li>
                     <li><a href="<?=base_url('dashboard/logout')?>">Logout</a></li>
+                    <li><a href="<?=base_url('site')?>">Site</a></li>
                 </ul>
             </div>
         </nav>

@@ -16,7 +16,6 @@
             echo '<br>';
         }
         ?>
-        <br><a href="home">Home</a> | <a href="about">About</a>
 </div>
 
 </body>

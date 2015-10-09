@@ -5,7 +5,6 @@ class Api extends CI_Controller{
     // -------------------------------------------------------------------------------------
     
     public function __construct() {
-        
         parent::__construct();
     }
     
@@ -28,9 +27,8 @@ class Api extends CI_Controller{
 
         $this->load->model('user_model');
         $result = $this->user_model->get(['login' => $login,
-                                   'password' => hash('sha256', $password.SALT)
+                                       'password' => hash('sha256', $password.SALT)
             ]);
-
         $this->output->set_content_type('application_json');
         if($result){
             $this->session->set_userdata(['user_id' => $result[0]['user_id']]);
@@ -45,13 +43,16 @@ class Api extends CI_Controller{
     public function register() {
 
         $this->output->set_content_type('application_json');
-        $this->form_validation->set_rules('login', 'Login', 'required|min_length[4]|max_length[16]|is_unique[user.login]');
-        $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[user.email]');
+        $this->form_validation->set_rules('login', 'Login',
+                                         'required|min_length[4]|max_length[16]|is_unique[user.login]');
+        $this->form_validation->set_rules('email', 'Email',
+                                         'required|valid_email|is_unique[user.email]');
         $this->form_validation->set_rules('password', 'Password',
-                                                'required|min_length[4]|max_length[16]|matches[confirm_password]');
+                                         'required|min_length[4]|max_length[16]|matches[confirm_password]');
         
         if($this->form_validation->run() == false){
-            $this->output->set_output(json_encode(['result' => 0, 'error' => $this->form_validation->error_array()]));
+            $this->output->set_output(json_encode(['result' => 0,
+                                                    'error' => $this->form_validation->error_array()]));
             return false;
         }
        
@@ -62,9 +63,9 @@ class Api extends CI_Controller{
 
         $this->load->model('user_model');
         $user_id = $this->user_model->insert(['login' => $login,
-                                'password' => hash('sha256', $password.SALT),
-                                'email' => $email]);
-
+                                           'password' => hash('sha256', $password.SALT),
+                                              'email' => $email
+                                              ]);
         if($user_id){
             $this->session->set_userdata(['user_id' => $user_id]);
             $this->output->set_output(json_encode(['result' => 1]));
@@ -83,16 +84,16 @@ class Api extends CI_Controller{
             $this->form_validation->set_rules('content', 'Content', 'required|max_length[255]');
             if($this->form_validation->run() === false){
                 $this->output->set_output(json_encode([
-                    'result' => 0,
-                     'error' => $this->form_validation->error_array()
+                            'result' => 0,
+                             'error' => $this->form_validation->error_array()
                     ]));
                 //$this->output->enable_profiler();  
                 return false;
             }
             
             $result = $this->db->insert('todo', [
-                    'content' => $this->input->post('content'),
-                    'user_id' => $this->session->userdata('user_id')
+                                'content' => $this->input->post('content'),
+                                'user_id' => $this->session->userdata('user_id')
                     ]);
             if($result){
                 $this->output->set_output(json_encode(['result' => 1]));

@@ -1,5 +1,6 @@
 RewriteEngine on
-RewriteBase /ci_intro
+RewriteBase /ci_intro/
+RewriteCond %{REQUEST_URI} ^system.*
 RewriteCond %{REQUEST_URI} ^application.*
 RewriteRule ^(.*)$ /index.php?/$1 [L]
 RewriteCond $1 !^(index\.php|public|robots\.txt)
