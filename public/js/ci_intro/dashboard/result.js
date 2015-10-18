@@ -3,7 +3,6 @@ var Result = function() {
     /* ------------------------------------------------------------------------*/
 
     this.__construct = function() {
-        console.log('Result Created');
     };
 
     /* ------------------------------------------------------------------------*/
@@ -42,7 +41,7 @@ var Result = function() {
             dom.html(msg).fadeIn();
         }
 
-        setTimeout(function (){
+        setTimeout(function(){
                 dom.fadeOut();
         }, 5000);
     };

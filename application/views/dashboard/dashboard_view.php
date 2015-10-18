@@ -9,7 +9,7 @@
         </form>
         
         <div id="list_todo">
-            <span class="ajax-loader-gray"></span>
+            <div class="ajax-loader-gray"></div>
         </div>
     </div>
     
@@ -27,7 +27,7 @@
         </form>
         
         <div id="list_note">
-            <span class="ajax-loader-gray"></span>
+            <div class="ajax-loader-gray"></div>
         </div>
     </div>
     

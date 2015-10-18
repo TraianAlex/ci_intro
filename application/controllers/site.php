@@ -4,7 +4,6 @@ class Site extends CI_Controller {
 
 	public function index(){
         $this->home();
-        $this->addStuff();
     }
     //not done
     public function contact(){
@@ -22,20 +21,9 @@ class Site extends CI_Controller {
         }
     }
 
-    public function addStuff() {
-        $this->load->model('math');
-        echo $this->math->add(2, 2);
-    }
-
     public function home() {
 
         $data['main'] = 'view_home';
-        $data['val1'] = "2";
-        $data['val2'] = "2";
-        $this->load->model('math');
-
-        $data['addTotal'] = $this->math->add($data['val1'], $data['val2']);
-        $data['subTotal'] = $this->math->sub($data['val1'], $data['val2']);
         $this->load->view("template", $data);
     }
 

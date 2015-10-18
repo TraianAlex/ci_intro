@@ -1,5 +1,5 @@
 RewriteEngine on
-RewriteBase /ci_intro/
+RewriteBase /codeigniter/ci_intro/
 RewriteCond %{REQUEST_URI} ^system.*
 RewriteCond %{REQUEST_URI} ^application.*
 RewriteRule ^(.*)$ /index.php?/$1 [L]

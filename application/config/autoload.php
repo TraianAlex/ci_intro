@@ -1,4 +1,11 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+function __autoload($class){
+    $class = strtolower($class);
+    
+    if ($class == 'crud_model')
+    	require APPPATH . 'models/' . $class . EXT;
+}
 /*
 | -------------------------------------------------------------------
 | AUTO-LOADER
@@ -64,7 +71,7 @@ $autoload['libraries'] = array('database', 'session', 'form_validation');//
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array("url", "form");//
+$autoload['helper'] = array("html", "url", "form");//
 
 
 /*

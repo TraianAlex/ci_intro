@@ -1,14 +1,14 @@
 <?php
 
-class MY_form_validation extends CI_form_validation{
+class MY_Form_validation extends CI_Form_validation{
     
-    public function __construct($config = array()) {
+    public function __construct($config = []) {
         parent::__construct($config);
     }
     
     public function error_array() {
         
-        if(count($this->_error_array > 0)){
+        if(count($this->_error_array) > 0){
             return $this->_error_array;
         }
     }

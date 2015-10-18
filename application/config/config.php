@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/ci_intro';//
+$config['base_url']	= 'http://localhost/codeigniter/ci_intro';//
 
 /*
 |--------------------------------------------------------------------------
@@ -224,7 +224,7 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = 'alex-3456789';//
+$config['encryption_key'] = 'uj8p5oa4UITM7FwM56wyGJi9bo6ok6gy';//
 
 /*
 |--------------------------------------------------------------------------
