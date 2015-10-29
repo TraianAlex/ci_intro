@@ -1,4 +1,4 @@
-var Event = function() {
+    var Event = function() {
 
     /* ------------------------------------------------------------------------*/
 
@@ -158,7 +158,7 @@ var Event = function() {
             var c = confirm('Are you sure you want to delete?')
             if (c == false) return false;
             
-            var self = $(this).parent('div');
+            var self = $(this).parents('div:eq(0)');
             var url = $(this).attr('href');
             var postData = {
                 'todo_id': $(this).attr('data-id')
@@ -184,7 +184,7 @@ var Event = function() {
             var c = confirm('Are you sure you want to delete?')
             if (c == false) return false;
             
-            var self = $(this).parent('div');
+            var self = $(this).parents('div:eq(0)');
             var url = $(this).attr('href');
             var postData = {
                 'note_id': $(this).attr('data-id')

@@ -226,9 +226,15 @@ class Api extends CI_Controller{
                 'date_modified' => date('Y-m-d H:i:s')
             ], $this->input->post('note_id'));
             // Do not check the $result because if no affected rows happen
-            // they will think its an error
-            $this->output->set_output(json_encode(['result' => 1]));
-            return false;
+            // they will think its an error //no necessary because anyway is set....
+            if($result){
+                $this->output->set_output(json_encode(['result' => 1]));
+                return false;
+            }
+            $this->output->set_output(json_encode([
+                'result' => 0,
+                'error' => 'Could not update record'
+                ]));
         }
         
         // --------------------------------------------------------------------------------

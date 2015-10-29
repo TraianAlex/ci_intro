@@ -3,44 +3,44 @@
         
         <div id="register_form_error" class="alert alert-error"><!-- Dynamic --></div>
         
-<form id="register_form" class="form-horizontal" method="post" action="<?=base_url('api/register')?>">
+        <form id="register_form" class="form-horizontal" method="post" action="<?=base_url('api/register')?>">
 
-    <h3 class="text-right">Register</h3>
-    <div class="control-group">
-        <label class="control-label">Login</label>
-        <div class="controls">
-            <input type="text" name="login" class="input-xlarge">
-        </div>
-    </div>
+            <h3 class="text-right">Register</h3>
+            <div class="control-group">
+                <label class="control-label">Login</label>
+                <div class="controls">
+                    <input type="text" name="login" class="input-xlarge">
+                </div>
+            </div>
 
-    <div class="control-group">
-        <label class="control-label">Email</label>
-        <div class="controls">
-            <input type="text" name="email" class="input-xlarge">
-        </div>
-    </div>
-    
-    <div class="control-group">
-        <label class="control-label">Password</label>
-        <div class="controls">
-            <input type="password" name="password" class="input-xlarge">
-        </div>
-    </div>
-    
-    <div class="control-group">
-        <label class="control-label">Confirm Password</label>
-        <div class="controls">
-            <input type="password" name="confirm_password" class="input-xlarge">
-        </div>
-    </div>
+            <div class="control-group">
+                <label class="control-label">Email</label>
+                <div class="controls">
+                    <input type="text" name="email" class="input-xlarge">
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label class="control-label">Password</label>
+                <div class="controls">
+                    <input type="password" name="password" class="input-xlarge">
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label class="control-label">Confirm Password</label>
+                <div class="controls">
+                    <input type="password" name="confirm_password" class="input-xlarge">
+                </div>
+            </div>
 
-    <div class="control-group">
-        <div class="controls">
-            <input type="submit" value="Register" class="btn btn-primary">
-            <a class="btn" href="<?=site_url('/')?>">Cancel</a>
-        </div>
-    </div>
-</form>
+            <div class="control-group">
+                <div class="controls">
+                    <input type="submit" value="Register" class="btn btn-primary">
+                    <a class="btn" href="<?=site_url('/')?>">Cancel</a>
+                </div>
+            </div>
+        </form>
 
     </div>
 </div>

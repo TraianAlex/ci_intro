@@ -1,5 +1,4 @@
-<div class="row">
-    
+<div class="row">   
     <div id="dashboard-side" class="span4">
         <form id="create_todo" class="form-horizontal" method="post" action="<?=site_url('api/create_todo')?>">
             <div class="input-append">
@@ -9,7 +8,7 @@
         </form>
         
         <div id="list_todo">
-            <div class="ajax-loader-gray"></div>
+            <span class="ajax-loader-gray"></span>
         </div>
     </div>
     
@@ -19,17 +18,12 @@
                 <input tabindex="1" type="text" name="title" placeholder="Note Title" />
                 <input tabindex="3" type="submit" class="btn btn-success" value="Create" />
             </div>
-            
             <div class="clearfix"></div>
-            
-            <textarea tabindex="2" name="content"></textarea>
-            
+            <textarea tabindex="2" name="content"></textarea> 
         </form>
         
         <div id="list_note">
-            <div class="ajax-loader-gray"></div>
+            <span class="ajax-loader-gray"></span>
         </div>
-    </div>
-    
-    
+    </div>   
 </div>

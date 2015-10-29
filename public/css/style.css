@@ -9,9 +9,16 @@
 h1, h2, h3, h4, h5 {
     font-family: 'Ubuntu Condensed', sans-serif;
 }
-.wrapper{
+.container{
     width: 940px;
     margin: 0 auto;
+    position: relative;
+}
+#error, #success {
+    position: fixed;
+    bottom: 100px;
+    z-index: 100;
+    width: 889px;
 }
 #header {
     background: #f5f5f5;
@@ -88,6 +95,7 @@ h1, h2, h3, h4, h5 {
     background: url('../img/ajax-loader-white.gif');
     width: 16px;
     height: 16px;
+    display: inline-block;
 }
 .ajax-loader-gray {
     background: url('../img/ajax-loader-gray.gif');
